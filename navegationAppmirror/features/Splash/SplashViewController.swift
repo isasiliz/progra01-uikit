@@ -33,26 +33,18 @@ class SplashViewController: UIViewController {
         if isAuthenticated {
             presentTabBarView()
         } else {
-           // presentLogingView()
-            presentSignUpView()
+            presentLogingView()
         }
         
     }
-    func presentSignUpView() {
-        let storyboard = UIStoryboard(name: "SignUp", bundle: nil)
-        let signUpViewController = storyboard.instantiateViewController(identifier: "SignUpViewController") as? SignUpViewController
-        signUpViewController!.modalPresentationStyle = .fullScreen
-        present(signUpViewController!, animated: true, completion: nil)
-    }
     
-    
-    
-    /*func presentLogingView() {
+    func presentLogingView() {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(identifier: "login_view_controller") as? LoginViewController
         loginViewController!.modalPresentationStyle = .fullScreen
         present(loginViewController!, animated: true, completion: nil)
-    }*/
+    }
+    
     func presentTabBarView() {
         let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
         let tabBarViewController = storyboard.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController

@@ -18,7 +18,6 @@
 		8F1CBFFA2C71B0AF0036C167 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F1CBFF92C71B0AF0036C167 /* Login.storyboard */; };
 		8F41E1452C783A480094F09C /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F41E1442C783A480094F09C /* TabBar.storyboard */; };
 		8F41E1472C783EB50094F09C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41E1462C783EB50094F09C /* TabBarViewController.swift */; };
-		8F689B3B2C7EC69900E3A359 /* SignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F689B3A2C7EC69900E3A359 /* SignUp.storyboard */; };
 		8F689B3D2C7EC6CA00E3A359 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689B3C2C7EC6CA00E3A359 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,7 +35,6 @@
 		8F1CBFF92C71B0AF0036C167 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		8F41E1442C783A480094F09C /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		8F41E1462C783EB50094F09C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		8F689B3A2C7EC69900E3A359 /* SignUp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUp.storyboard; sourceTree = "<group>"; };
 		8F689B3C2C7EC6CA00E3A359 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,7 +152,6 @@
 		8F689B392C7EC5AF00E3A359 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				8F689B3A2C7EC69900E3A359 /* SignUp.storyboard */,
 				8F689B3C2C7EC6CA00E3A359 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
@@ -220,7 +217,6 @@
 			files = (
 				8F1CBFE42C7194C00036C167 /* Assets.xcassets in Resources */,
 				8F1CBFE72C7194C00036C167 /* Base in Resources */,
-				8F689B3B2C7EC69900E3A359 /* SignUp.storyboard in Resources */,
 				8F1CBFE22C7194BF0036C167 /* Base in Resources */,
 				8F1CBFFA2C71B0AF0036C167 /* Login.storyboard in Resources */,
 				8F41E1452C783A480094F09C /* TabBar.storyboard in Resources */,

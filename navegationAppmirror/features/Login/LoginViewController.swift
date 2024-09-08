@@ -28,6 +28,10 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func doSignUp(_ sender: Any) {
+        presentSignUp()
+    }
+    
     func doLogin(username: String, password: String) {
         // create a request
         var request = URLRequest(url: getUrl() )
@@ -53,6 +57,11 @@ class LoginViewController: UIViewController {
             let json = try? JSONSerialization.jsonObject(with: data!) as? [String: Any]
             print(json)
             
+            if json?["accessToken"] as? String == nil {
+                print("no se, no vino el access token, todo mal")
+                return
+            }
+            
             self.saveAccessToken(json)
             self.saveUsernameAndEmail(json)
            
@@ -72,6 +81,13 @@ class LoginViewController: UIViewController {
         let tabBarViewController = storyboard.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController
         tabBarViewController!.modalPresentationStyle = .fullScreen
         present(tabBarViewController!, animated: true, completion: nil)
+    }
+    
+    func presentSignUp() {
+        let storyboard = UIStoryboard(name: "Login", bundle: nil)
+        let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController
+        signUpViewController!.modalPresentationStyle = .fullScreen
+        present(signUpViewController!, animated: true, completion: nil)
     }
     
     func saveAccessToken(_ json: [String: Any]?) {
