@@ -87,7 +87,8 @@ class LoginViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController
         signUpViewController!.modalPresentationStyle = .fullScreen
-        present(signUpViewController!, animated: true, completion: nil)
+        
+        navigationController?.pushViewController(signUpViewController!, animated: true)
     }
     
     func saveAccessToken(_ json: [String: Any]?) {
