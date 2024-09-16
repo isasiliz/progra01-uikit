@@ -21,10 +21,12 @@ class SettingViewController: UIViewController {
     func presentLogingView() {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(identifier: "login_view_controller") as? LoginViewController
-        loginViewController!.modalPresentationStyle = .fullScreen
-        present(loginViewController!, animated: true, completion: nil)
+        
+        
+        let nv = UINavigationController(rootViewController: loginViewController!)
+        nv.modalPresentationStyle = .fullScreen
+        present(nv, animated: true, completion: nil)
     }
-    
     func borrarToken() {
         UserDefaults.standard.removeObject(forKey: "accessToken")
     }
