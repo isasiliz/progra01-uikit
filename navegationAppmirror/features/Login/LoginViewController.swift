@@ -13,6 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var logInButtonOutlet: UIButton!
     @IBOutlet weak var usernameContentView: UIView!
     @IBOutlet weak var passwordContentView: UIView!
+    @IBOutlet weak var signUpButton: UIButton!
     
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class LoginViewController: UIViewController {
         usernameContentView.layer.cornerRadius = 10
         passwordContentView.layer.cornerRadius = 10
         logInButtonOutlet.layer.cornerRadius = 10
+        signUpButton.layer.cornerRadius = 10
         passwordTextField.text = "StrongPassword123!" //borrar esto desp
     }
     

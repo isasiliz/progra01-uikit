@@ -16,8 +16,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         let token = UserDefaults.standard.string(forKey: "accessToken")
         tokenLabel.text = token
-        let username = UserDefaults.standard.string(forKey: "username")
-        usernameLabel.text = username
+        let username = UserDefaults.standard.string(forKey: "username") ?? "username"
+        usernameLabel.text = "Hola \(username)"
         let email = UserDefaults.standard.string(forKey: "email")
         emailLabel.text = email
         
