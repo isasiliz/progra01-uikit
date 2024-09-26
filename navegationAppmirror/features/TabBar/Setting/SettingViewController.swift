@@ -12,12 +12,13 @@ class SettingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-  
+    
     @IBAction func logOutTapped(_ sender: Any) {
         borrarToken()
         presentLogingView()
         
     }
+    
     func presentLogingView() {
         let storyboard = UIStoryboard(name: "Login", bundle: nil)
         let loginViewController = storyboard.instantiateViewController(identifier: "login_view_controller") as? LoginViewController
