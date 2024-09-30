@@ -39,20 +39,10 @@ class SplashViewController: UIViewController {
     }
     
     func presentLogingView() {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginViewController = storyboard.instantiateViewController(identifier: "login_view_controller") as? LoginViewController
-        
-        
-        let nv = UINavigationController(rootViewController: loginViewController!)
-        nv.modalPresentationStyle = .fullScreen
-        present(nv, animated: true, completion: nil)
+        performSegue(withIdentifier: "splash_login_segue", sender: nil)
     }
-    
     func presentTabBarView() {
-        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-        let tabBarViewController = storyboard.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController
-        tabBarViewController!.modalPresentationStyle = .fullScreen
-        present(tabBarViewController!, animated: true, completion: nil)
+        performSegue(withIdentifier: "splash_tabbar_segue", sender: nil)
     }
 }
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,10 +36,34 @@
                             <constraint firstAttribute="bottom" secondItem="CG2-bB-NOP" secondAttribute="bottom" id="uV0-AY-vxY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="hP6-LB-gMm" kind="presentation" identifier="splash_login_segue" modalPresentationStyle="fullScreen" id="7RR-oC-ep3"/>
+                        <segue destination="U0V-0C-exY" kind="presentation" identifier="splash_tabbar_segue" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="D8h-0J-4B0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="113" y="-2"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="Kdj-Yk-lCo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Login" id="hP6-LB-gMm" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="q7u-w6-bfD"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MeS-BP-bD1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1050" y="-89"/>
+        </scene>
+        <!--TabBar-->
+        <scene sceneID="otx-dt-lh7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBar" id="U0V-0C-exY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="92C-yW-QHj"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KuA-vd-gz5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="973" y="107"/>
         </scene>
     </scenes>
     <resources>

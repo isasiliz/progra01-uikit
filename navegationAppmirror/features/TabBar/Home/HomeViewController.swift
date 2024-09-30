@@ -14,8 +14,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let token = UserDefaults.standard.string(forKey: "accessToken")
-        tokenLabel.text = token
         let username = UserDefaults.standard.string(forKey: "username") ?? "username"
         usernameLabel.text = "Hola \(username)"
         let email = UserDefaults.standard.string(forKey: "email")

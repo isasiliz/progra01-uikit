@@ -30,10 +30,6 @@ class LoginViewController: UIViewController {
         
     }
     
-    @IBAction func doSignUp(_ sender: Any) {
-        presentSignUp()
-    }
-    
     func doLogin(username: String, password: String) {
         // create a request
         var request = URLRequest(url: getUrl() )
@@ -76,23 +72,14 @@ class LoginViewController: UIViewController {
     }
     
    
-    
+    @IBAction func signUpDidTapped(_ sender: Any) {
+        performSegue(withIdentifier: "create_account_segue", sender: nil)
+    }
     
     func presentTabBarView() {
-        let storyboard = UIStoryboard(name: "TabBar", bundle: nil)
-        let tabBarViewController = storyboard.instantiateViewController(identifier: "TabBarViewController") as? TabBarViewController
-        tabBarViewController!.modalPresentationStyle = .fullScreen
-        present(tabBarViewController!, animated: true, completion: nil)
+        performSegue(withIdentifier: "tabbar_segue", sender: nil)
     }
-    
-    func presentSignUp() {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let signUpViewController = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController
-        signUpViewController!.modalPresentationStyle = .fullScreen
-        
-        navigationController?.pushViewController(signUpViewController!, animated: true)
-    }
-    
+
     func saveAccessToken(_ json: [String: Any]?) {
         let accessToken = json?["accessToken"] as? String
         UserDefaults.standard.setValue(accessToken, forKey: "accessToken")

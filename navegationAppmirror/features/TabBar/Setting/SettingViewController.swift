@@ -18,15 +18,9 @@ class SettingViewController: UIViewController {
         presentLogingView()
         
     }
-    
     func presentLogingView() {
-        let storyboard = UIStoryboard(name: "Login", bundle: nil)
-        let loginViewController = storyboard.instantiateViewController(identifier: "login_view_controller") as? LoginViewController
-        
-        
-        let nv = UINavigationController(rootViewController: loginViewController!)
-        nv.modalPresentationStyle = .fullScreen
-        present(nv, animated: true, completion: nil)
+        performSegue(withIdentifier: "logout_login_segue", sender: nil)
+       
     }
     func borrarToken() {
         UserDefaults.standard.removeObject(forKey: "accessToken")
