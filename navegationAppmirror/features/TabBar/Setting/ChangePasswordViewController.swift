@@ -94,7 +94,7 @@ class ChangePasswordViewController: UIViewController {
            
             
             DispatchQueue.main.async {
-                self.dismiss(animated: true)
+                self.navigationController?.popViewController(animated: true)
             }
         }
             .resume()
