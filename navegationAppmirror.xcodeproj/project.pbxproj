@@ -19,6 +19,7 @@
 		8F41E1452C783A480094F09C /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F41E1442C783A480094F09C /* TabBar.storyboard */; };
 		8F41E1472C783EB50094F09C /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F41E1462C783EB50094F09C /* TabBarViewController.swift */; };
 		8F689B3D2C7EC6CA00E3A359 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F689B3C2C7EC6CA00E3A359 /* SignUpViewController.swift */; };
+		8FE5808E2CAB9B6E00FE3C3C /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FE5808D2CAB9B6A00FE3C3C /* ForgotPasswordViewController.swift */; };
 		8FF362322C97E5A100DDBF9F /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF362312C97E5A100DDBF9F /* ChangePasswordViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		8F41E1442C783A480094F09C /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 		8F41E1462C783EB50094F09C /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		8F689B3C2C7EC6CA00E3A359 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8FE5808D2CAB9B6A00FE3C3C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		8FF362312C97E5A100DDBF9F /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				8F1CBFEF2C7199920036C167 /* LoginViewController.swift */,
+				8FE5808D2CAB9B6A00FE3C3C /* ForgotPasswordViewController.swift */,
 				8F1CBFF92C71B0AF0036C167 /* Login.storyboard */,
 			);
 			path = Login;
@@ -236,6 +239,7 @@
 				8F689B3D2C7EC6CA00E3A359 /* SignUpViewController.swift in Sources */,
 				8F0CE4152C7A9A0D004B5AF4 /* SettingViewController.swift in Sources */,
 				8F41E1472C783EB50094F09C /* TabBarViewController.swift in Sources */,
+				8FE5808E2CAB9B6E00FE3C3C /* ForgotPasswordViewController.swift in Sources */,
 				8FF362322C97E5A100DDBF9F /* ChangePasswordViewController.swift in Sources */,
 				8F1CBFF02C7199920036C167 /* LoginViewController.swift in Sources */,
 				8F1CBFDF2C7194BF0036C167 /* SplashViewController.swift in Sources */,

@@ -85,6 +85,9 @@
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Forgot password?"/>
+                                                <connections>
+                                                    <segue destination="Z5v-Ud-hjb" kind="show" identifier="forgot_password_segue" id="gD4-rd-dZs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -184,6 +187,72 @@
             </objects>
             <point key="canvasLocation" x="973.28244274809151" y="-2.1126760563380285"/>
         </scene>
+        <!--Forgot Password View Controller-->
+        <scene sceneID="b78-tS-Csd">
+            <objects>
+                <viewController storyboardIdentifier="ForgotPasswordViewController" id="Z5v-Ud-hjb" customClass="ForgotPasswordViewController" customModule="navegationAppmirror" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="F8X-X5-I12">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jCS-F4-mbI">
+                                <rect key="frame" x="16" y="119.00000000000001" width="361" height="39.666666666666671"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your email address to reset your password." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYm-Lr-ezo">
+                                <rect key="frame" x="16" y="222.66666666666666" width="361" height="40.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pUL-7C-GTp">
+                                <rect key="frame" x="16" y="279.33333333333331" width="345" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EJ-d8-wuB">
+                                <rect key="frame" x="64" y="377.33333333333331" width="265" height="50"/>
+                                <color key="backgroundColor" red="0.21334090829999999" green="0.60511863229999996" blue="0.58576750759999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pdl-SC-dOh"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Send Reset Link"/>
+                                <connections>
+                                    <action selector="sendResetLinkTapped:" destination="Z5v-Ud-hjb" eventType="touchUpInside" id="dVa-jP-487"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="HwC-8S-z9d"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0EJ-d8-wuB" firstAttribute="top" secondItem="pUL-7C-GTp" secondAttribute="bottom" constant="64" id="9pQ-xB-0mT"/>
+                            <constraint firstItem="rYm-Lr-ezo" firstAttribute="leading" secondItem="HwC-8S-z9d" secondAttribute="leading" constant="16" id="CtG-sa-eZk"/>
+                            <constraint firstItem="pUL-7C-GTp" firstAttribute="top" secondItem="rYm-Lr-ezo" secondAttribute="bottom" constant="16" id="Eud-WN-eo2"/>
+                            <constraint firstItem="HwC-8S-z9d" firstAttribute="trailing" secondItem="0EJ-d8-wuB" secondAttribute="trailing" constant="64" id="F2V-zH-LOk"/>
+                            <constraint firstAttribute="trailing" secondItem="jCS-F4-mbI" secondAttribute="trailing" constant="16" id="RbL-sz-vs1"/>
+                            <constraint firstItem="0EJ-d8-wuB" firstAttribute="leading" secondItem="HwC-8S-z9d" secondAttribute="leading" constant="64" id="iTA-vp-H8Z"/>
+                            <constraint firstItem="HwC-8S-z9d" firstAttribute="trailing" secondItem="pUL-7C-GTp" secondAttribute="trailing" constant="32" id="lhn-B9-NaY"/>
+                            <constraint firstAttribute="trailing" secondItem="rYm-Lr-ezo" secondAttribute="trailing" constant="16" id="m2n-OY-9Jk"/>
+                            <constraint firstItem="rYm-Lr-ezo" firstAttribute="top" secondItem="jCS-F4-mbI" secondAttribute="bottom" constant="64" id="mva-rF-GWh"/>
+                            <constraint firstItem="jCS-F4-mbI" firstAttribute="top" secondItem="HwC-8S-z9d" secondAttribute="top" constant="16" id="pYV-8m-39O"/>
+                            <constraint firstItem="jCS-F4-mbI" firstAttribute="leading" secondItem="HwC-8S-z9d" secondAttribute="leading" constant="16" id="q0T-VX-bC1"/>
+                            <constraint firstItem="pUL-7C-GTp" firstAttribute="leading" secondItem="HwC-8S-z9d" secondAttribute="leading" constant="16" id="wyk-wN-qpL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="2NW-bv-4h0"/>
+                    <connections>
+                        <outlet property="emailResetTextField" destination="pUL-7C-GTp" id="dbR-Jd-eiF"/>
+                        <outlet property="resetLinkButton" destination="0EJ-d8-wuB" id="Y4c-Km-dWg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azC-WJ-Qgj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1810" y="530"/>
+        </scene>
         <!--TabBar-->
         <scene sceneID="NwP-lx-wAd">
             <objects>
@@ -192,7 +261,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aja-fw-bbW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1806" y="-563"/>
+            <point key="canvasLocation" x="1527" y="-667"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="kCF-hC-nN9">
@@ -210,7 +279,7 @@
                                 <color key="shadowColor" systemColor="systemIndigoColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qth-F3-3HW">
-                                <rect key="frame" x="16" y="223.66666666666663" width="361" height="413"/>
+                                <rect key="frame" x="16" y="223.66666666666663" width="361" height="413.00000000000011"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ER7-LF-5Aa">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="102.33333333333333"/>
@@ -344,12 +413,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddP-0s-k9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1902" y="-2"/>
+            <point key="canvasLocation" x="1827" y="-288"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Login-->
         <scene sceneID="nKs-ql-m0e">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MPg-hu-KBU" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MPg-hu-KBU" customClass="Login" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ydl-K8-cuN">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
