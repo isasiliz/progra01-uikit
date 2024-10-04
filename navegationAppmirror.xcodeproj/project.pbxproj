@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,10 @@
 		8FE5808D2CAB9B6A00FE3C3C /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		8FF362312C97E5A100DDBF9F /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		8FB28F892CAF77F900EB0A36 /* ApiNetwork */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ApiNetwork; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		8F1CBFD42C7194BE0036C167 /* Frameworks */ = {
@@ -90,16 +94,16 @@
 			isa = PBXGroup;
 			children = (
 				8F1CBFDA2C7194BE0036C167 /* NavegationAppMirror.swift */,
-				8F1CBFEE2C71985A0036C167 /* features */,
-				8F1CBFF12C7199AA0036C167 /* commons */,
-				8F1CBFF22C7199B70036C167 /* resources */,
+				8F1CBFEE2C71985A0036C167 /* Feature */,
+				8F1CBFF12C7199AA0036C167 /* Common */,
+				8F1CBFF22C7199B70036C167 /* Resource */,
 				8F1CBFE52C7194C00036C167 /* LaunchScreen.storyboard */,
 				8F1CBFE82C7194C00036C167 /* Info.plist */,
 			);
 			path = navegationAppmirror;
 			sourceTree = "<group>";
 		};
-		8F1CBFEE2C71985A0036C167 /* features */ = {
+		8F1CBFEE2C71985A0036C167 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
 				8F689B392C7EC5AF00E3A359 /* SignUp */,
@@ -107,22 +111,23 @@
 				8F1CBFF82C71B0740036C167 /* Login */,
 				8F1CBFF72C71B05E0036C167 /* Splash */,
 			);
-			path = features;
+			path = Feature;
 			sourceTree = "<group>";
 		};
-		8F1CBFF12C7199AA0036C167 /* commons */ = {
+		8F1CBFF12C7199AA0036C167 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				8FB28F892CAF77F900EB0A36 /* ApiNetwork */,
 			);
-			path = commons;
+			path = Common;
 			sourceTree = "<group>";
 		};
-		8F1CBFF22C7199B70036C167 /* resources */ = {
+		8F1CBFF22C7199B70036C167 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
 				8F1CBFE32C7194C00036C167 /* Assets.xcassets */,
 			);
-			path = resources;
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		8F1CBFF72C71B05E0036C167 /* Splash */ = {
@@ -177,6 +182,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8FB28F892CAF77F900EB0A36 /* ApiNetwork */,
 			);
 			name = navegationAppmirror;
 			productName = navegationAppmirror;
