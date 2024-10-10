@@ -14,7 +14,7 @@ struct UserNameAndPasswordEntity: Encodable {
     let password: String
 }
 
-struct UserNameAndPassowrdResponseEntity: Decodable {
+struct UserNameAndPasswordResponseEntity: Decodable {
     let accessToken: String
 }
 
@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
             case .success(let data):
                 
                 let decoder = JSONDecoder()
-                let response = try? decoder.decode(UserNameAndPassowrdResponseEntity.self, from: data)
+                let response = try? decoder.decode(UserNameAndPasswordResponseEntity.self, from: data)
                 
                 
                 if let response = response {
@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
                         self.presentTabBarView()
                     }
                 } else {
-                    print("respose is nil, no se pudo serailizar")
+                    print("respose is nil, no se pudo serializar")
                 }
                 break
             case .failure(let error):

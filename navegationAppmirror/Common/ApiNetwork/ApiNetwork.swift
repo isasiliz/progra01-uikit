@@ -36,8 +36,11 @@ class ApiNetwork {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
+        // 2 forma de desempaquetar de forma segura un option. La 3era ! (force unwrapped)
         if let requestBody = requestBody {
             request.httpBody = requestBody
+        }else {
+            request.httpBody = nil //hasta que entienda bien el tema, dsp sacar
         }
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
