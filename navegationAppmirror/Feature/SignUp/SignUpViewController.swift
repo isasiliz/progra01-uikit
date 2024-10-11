@@ -29,10 +29,8 @@ class SignUpViewController: UIViewController {
     }
     
     func doSignUp(username: String, email: String, password: String) {
+        let apiNetwork = ApiNetwork()
         
-        var request = URLRequest(url: getCreateUserUrl())
-        
-        request.httpMethod = "POST"
         
         let bodyDictionary: [String: Any] = [
             "username": username,
@@ -40,25 +38,31 @@ class SignUpViewController: UIViewController {
             "password": password
         ]
         
-        let bodyData = try? JSONSerialization.data(withJSONObject: bodyDictionary)
-        request.cachePolicy = .reloadIgnoringLocalCacheData
-        request.httpBody = bodyData
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let task =  URLSession.shared.dataTask(with: request) {data, response, error in
-            if error != nil {
-                print("error al crear el user", error)
+        apiNetwork.apiCall(path: "api/v1/user", method: "POST", json: bodyDictionary, completion: { dictionary, error in
+            if let error = error {
+                switch error {
+                case .connectionError:
+                    
+                    break
+                case .emptyData:
+                    break
+                case .invalidUrl:
+                    break
+                case .requestError(title: let title, message: let message):
+                    print(title, message)
+                    break
+                case .unknownError:
+                    break
+                case .urlNotFound:
+                    break
+                }
                 return
             }
-            let json = try? JSONSerialization.jsonObject(with: data!) as? [String: Any]
-            print(json)
             
             DispatchQueue.main.async {
                 self.presentLogingView()
             }
-           
-        }
-            .resume()
+        })
     }
 
     func getCreateUserUrl() -> URL {

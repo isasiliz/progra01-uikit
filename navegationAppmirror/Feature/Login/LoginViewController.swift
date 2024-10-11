@@ -7,17 +7,6 @@
 
 import Foundation
 import UIKit
-
-
-struct UserNameAndPasswordEntity: Encodable {
-    let email: String
-    let password: String
-}
-
-struct UserNameAndPasswordResponseEntity: Decodable {
-    let accessToken: String
-}
-
 class LoginViewController: UIViewController {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -42,101 +31,86 @@ class LoginViewController: UIViewController {
     }
     
     func doLogin(username: String, password: String) {
-        // Closures
-        
         let apiNetwork = ApiNetwork()
+        let json: [String: Any] = [
+            "email": username,
+            "password": password
+        ]
         
-        
-        let entity = UserNameAndPasswordEntity(email: username, password: password)
-        let requestBody =  try? JSONEncoder().encode(entity)
-        
-        apiNetwork.doTaskWithCompletionHandler(requestBody: requestBody, method: .post, path: "/api/v1/login") { result in
-            switch result {
-            case .success(let data):
-                
-                let decoder = JSONDecoder()
-                let response = try? decoder.decode(UserNameAndPasswordResponseEntity.self, from: data)
-                
-                
-                if let response = response {
-                    UserDefaults.standard.setValue(response.accessToken, forKey: "accessToken")
+        apiNetwork.apiCall(path: "api/v1/login", method: "POST", json: json) { dictionary, error in
+            if let error = error {
+                switch error {
+                case .connectionError:
                     
-                    DispatchQueue.main.async {
-                        self.presentTabBarView()
-                    }
-                } else {
-                    print("respose is nil, no se pudo serializar")
+                    break
+                case .emptyData:
+                    break
+                case .invalidUrl:
+                    break
+                case .requestError(title: let title, message: let message):
+                    print(title, message)
+                    break
+                case .unknownError:
+                    break
+                case .urlNotFound:
+                    break
                 }
-                break
-            case .failure(let error):
+                return
+            }
+            
+            if let dictionary = dictionary {
+                self.saveAccessToken(dictionary)
+                self.saveUsernameAndEmail(dictionary)
+               
                 DispatchQueue.main.async {
-                    // llamar al alert
+                    self.presentTabBarView()
                 }
-                print(error.rawValue) // Invalid URL
-                break
             }
         }
     }
     
+    func doLogin2(username: String, password: String) {
+        // create a request
+        var request = URLRequest(url: getUrl() )
+        
+        request.httpMethod = "POST"
+        
+        let json: [String: Any] = [
+            "email": username,
+            "password": password
+        ]
+        
+        let data = try? JSONSerialization.data(withJSONObject: json)
+        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
+        request.httpBody = data
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if error != nil {
+                print("algo se rompio", error)
+                return
+            }
+            
+            let json = try? JSONSerialization.jsonObject(with: data!) as? [String: Any]
+            print(json)
+            
+            if json?["accessToken"] as? String == nil {
+                print("no se, no vino el access token, todo mal")
+                return
+            }
+            
+            self.saveAccessToken(json)
+            self.saveUsernameAndEmail(json)
+           
+            DispatchQueue.main.async {
+                self.presentTabBarView()
+            }
+        }
+            .resume()
+        
+    }
     
-    /*
-     func doLogin_New_2(username: String, password: String) {
-     // Async Await
-     
-     do {
-     let response = await doTask(method: .post, path: "/api/v1/login")
-     
-     print(response.token)
-     
-     //mostramos en pantalla los datos be, en este caso recibimos el token, no mostramos nada en pantalla solo guardamos en el disco.
-     } catch {
-     // mostramos en pastalla un alert
-     }
-     }
-     */
-    
-    /*func doLogin(username: String, password: String) {
-     // create a request
-     var request = URLRequest(url: getUrl() )
-     
-     request.httpMethod = "POST"
-     
-     let json: [String: Any] = [
-     "email": username,
-     "password": password
-     ]
-     
-     let data = try? JSONSerialization.data(withJSONObject: json)
-     request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-     request.httpBody = data
-     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-     
-     let task = URLSession.shared.dataTask(with: request) { data, response, error in
-     if error != nil {
-     print("algo se rompio", error)
-     return
-     }
-     
-     let json = try? JSONSerialization.jsonObject(with: data!) as? [String: Any]
-     print(json)
-     
-     if json?["accessToken"] as? String == nil {
-     print("no se, no vino el access token, todo mal")
-     return
-     }
-     
-     self.saveAccessToken(json)
-     self.saveUsernameAndEmail(json)
-     
-     DispatchQueue.main.async {
-     self.presentTabBarView()
-     }
-     }
-     .resume()
-     
-     }
-     
-     */
+   
     @IBAction func signUpDidTapped(_ sender: Any) {
         performSegue(withIdentifier: "create_account_segue", sender: nil)
     }
@@ -144,7 +118,7 @@ class LoginViewController: UIViewController {
     func presentTabBarView() {
         performSegue(withIdentifier: "tabbar_segue", sender: nil)
     }
-    
+
     func saveAccessToken(_ json: [String: Any]?) {
         let accessToken = json?["accessToken"] as? String
         UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
@@ -169,7 +143,7 @@ class LoginViewController: UIViewController {
     }
     
     
-    
+  
 }
 
 

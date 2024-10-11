@@ -2,101 +2,74 @@
 //  ApiNetwork.swift
 //  navegationAppmirror
 //
-//  Created by Liz Isasi on 03/10/2024.
+//  Created by Liz Isasi on 10/10/2024.
 //
 
 import Foundation
 
 class ApiNetwork {
-    
-    func getStringUrl() -> String {
-        return "https://auction-master-of-darkness-dev-00d8bbef4e9d.herokuapp.com"
-    }
-    
-    enum Method: String {
-        case post = "POST"
-        case get = "GET"
-        case put = "PUT"
-        case delete = "DELETE"
-    }
-    
-    func doTaskWithCompletionHandler(requestBody: Data?, method: Method, path: String, completionHandler: @escaping (Result<Data, ApiError>) -> Void ) {
-        // create a request
-        
-        let stringURL = getStringUrl()
-        let url = URL(string: "\(stringURL)\(path)")
-        
-        // 1 forma de desempaquetar de forma segura un option
-        guard let url = url else {
-            completionHandler(.failure(.invalidUrl))
-            return // returonamos si url == nil
+    func apiCall(path: String, method: String, json: [String: Any], completion: @escaping ([String: Any]?, ApiError?) -> Void ) {
+        guard let url = getUrl(path: path) else {
+            completion(nil, .invalidUrl)
+            return
         }
-        // si sigue por aca, es que tenemos url, y ya no es mas optional
         
         var request = URLRequest(url: url)
-        request.httpMethod = method.rawValue
+        request.httpMethod = method
         
-        // 2 forma de desempaquetar de forma segura un option. La 3era ! (force unwrapped)
-        if let requestBody = requestBody {
-            request.httpBody = requestBody
-        }else {
-            request.httpBody = nil //hasta que entienda bien el tema, dsp sacar
+        if let data = try? JSONSerialization.data(withJSONObject: json) {
+            request.httpBody = data
         }
         
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let _ = URLSession.shared.dataTask(with: request) { data, response, error in
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if error != nil {
-                completionHandler(.failure(.connectionError))
+                completion(nil, .connectionError)
                 return
             }
             
-            guard let data = data else {
-                completionHandler(.failure(.dataIsNil))
+            guard let data else {
+                completion(nil, .emptyData)
                 return
             }
             
             let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any]
-            print(json)
             
-            if let httpResponse: HTTPURLResponse = response as? HTTPURLResponse {
+            if let httpResponse = response as? HTTPURLResponse {
                 let status = httpResponse.statusCode
                 
                 switch status {
-                case 200..<300:
-                    completionHandler(.success(data))
-                    break
-                case 401:
-                    completionHandler(.failure(.authenticationError))
-                    break
-                case 403:
-                    completionHandler(.failure(.refreshTokenExpired))
+                case 200...299:
+                    completion(json, nil)
                     break
                 case 400:
-                    completionHandler(.failure(.requestError))
+                    let title = json?["title"] as? String
+                    let message = json?["message"] as? String
+                    completion(nil, .requestError(title: title ?? "-", message: message ?? "-"))
                     break
-                case 500:
-                    completionHandler(.failure(.serverError))
+                case 404:
+                    completion(nil, .urlNotFound)
                     break
                 default:
-                    completionHandler(.failure(.unknownError))
+                    completion(nil, .unknownError)
                     return
                 }
+            } else {
+                completion(nil, .unknownError)
             }
+            
         }
-            .resume()
-        
+        .resume()
     }
-}
-
-
-enum ApiError: String, Error {
-    case invalidUrl = "Invalid URL"
-    case dataIsNil = "Data is nil"
-    case connectionError = "Connection error"
-    case authenticationError = "Authentication error"
-    case refreshTokenExpired = "Refresh token expired"
-    case requestError = "Request error"
-    case serverError = "Server error"
-    case unknownError = "Unknown error"
+    
+    private func getUrl(path: String) -> URL? {
+        let urlString = "https://auction-master-of-darkness-dev-00d8bbef4e9d.herokuapp.com/\(path)"
+        guard let url = URL(string: urlString) else {
+            return nil
+        }
+        
+        return url
+    }
+    
 }
