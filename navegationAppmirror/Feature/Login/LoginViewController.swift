@@ -51,7 +51,8 @@ class LoginViewController: UIViewController {
                         self.showAlert("url", "Mesasage")
                         
                     case .requestError(title: let title, message: let message):
-                        self.showAlert(title, message)
+                        print(title, message)
+                        self.showAlert(NSLocalizedString(title, comment: ""), NSLocalizedString(message, comment: ""))
                         
                         break
                     case .unknownError:

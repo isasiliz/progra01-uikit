@@ -1,0 +1,5 @@
+
+"_400_ERROR_TITLE" = "Error de request";
+"_400_ERROR_MESSAGE" = "Error de request mensaje";
+"_LOGIN_ERROR" = "Error de Autenticación";
+"_WRONG_USER_PASSWORD" = "El usuario o contraseña es incorrecto";

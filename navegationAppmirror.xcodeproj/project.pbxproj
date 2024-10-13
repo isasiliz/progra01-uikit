@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F07BC812CBB4C0F0026F97D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8F07BC802CBB4C0F0026F97D /* Localizable.strings */; };
 		8F0CE4152C7A9A0D004B5AF4 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0CE4142C7A9A0D004B5AF4 /* SettingViewController.swift */; };
 		8F0CE4182C7AA876004B5AF4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0CE4172C7AA876004B5AF4 /* HomeViewController.swift */; };
 		8F1CBFDB2C7194BE0036C167 /* NavegationAppMirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F1CBFDA2C7194BE0036C167 /* NavegationAppMirror.swift */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F07BC7F2CBB4C0F0026F97D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8F07BC822CBB4C350026F97D /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		8F0CE4142C7A9A0D004B5AF4 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		8F0CE4172C7AA876004B5AF4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8F1CBFD72C7194BE0036C167 /* navegationAppmirror.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = navegationAppmirror.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				8F1CBFDA2C7194BE0036C167 /* NavegationAppMirror.swift */,
+				8F07BC802CBB4C0F0026F97D /* Localizable.strings */,
 				8F1CBFEE2C71985A0036C167 /* Feature */,
 				8F1CBFF12C7199AA0036C167 /* Common */,
 				8F1CBFF22C7199B70036C167 /* Resource */,
@@ -219,6 +223,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"es-419",
 			);
 			mainGroup = 8F1CBFCE2C7194BE0036C167;
 			productRefGroup = 8F1CBFD82C7194BE0036C167 /* Products */;
@@ -236,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F1CBFE42C7194C00036C167 /* Assets.xcassets in Resources */,
+				8F07BC812CBB4C0F0026F97D /* Localizable.strings in Resources */,
 				8F1CBFE72C7194C00036C167 /* Base in Resources */,
 				8F1CBFE22C7194BF0036C167 /* Base in Resources */,
 				8F1CBFFA2C71B0AF0036C167 /* Login.storyboard in Resources */,
@@ -267,6 +273,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8F07BC802CBB4C0F0026F97D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F07BC7F2CBB4C0F0026F97D /* en */,
+				8F07BC822CBB4C350026F97D /* es-419 */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		8F1CBFE02C7194BF0036C167 /* Splash.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -291,6 +306,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -345,6 +361,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -354,6 +371,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -401,6 +419,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
