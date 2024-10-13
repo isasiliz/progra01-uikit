@@ -31,7 +31,6 @@ class SignUpViewController: UIViewController {
     func doSignUp(username: String, email: String, password: String) {
         let apiNetwork = ApiNetwork()
         
-        
         let bodyDictionary: [String: Any] = [
             "username": username,
             "email": email,
@@ -41,8 +40,7 @@ class SignUpViewController: UIViewController {
         apiNetwork.apiCall(path: "api/v1/user", method: "POST", json: bodyDictionary, completion: { dictionary, error in
             if let error = error {
                 switch error {
-                case .connectionError:
-                    
+                case .internetConnectionError:
                     break
                 case .emptyData:
                     break
@@ -55,6 +53,8 @@ class SignUpViewController: UIViewController {
                     break
                 case .urlNotFound:
                     break
+                case .timeout:
+                    break
                 }
                 return
             }
@@ -63,12 +63,6 @@ class SignUpViewController: UIViewController {
                 self.presentLogingView()
             }
         })
-    }
-
-    func getCreateUserUrl() -> URL {
-        let urlString = "https://auction-master-of-darkness-dev-00d8bbef4e9d.herokuapp.com/api/v1/user"
-        let url = URL(string: urlString)!
-        return url
     }
 
     func presentLogingView() {

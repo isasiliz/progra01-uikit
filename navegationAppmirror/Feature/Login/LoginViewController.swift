@@ -39,21 +39,28 @@ class LoginViewController: UIViewController {
         
         apiNetwork.apiCall(path: "api/v1/login", method: "POST", json: json) { dictionary, error in
             if let error = error {
-                switch error {
-                case .connectionError:
-                    
-                    break
-                case .emptyData:
-                    break
-                case .invalidUrl:
-                    break
-                case .requestError(title: let title, message: let message):
-                    print(title, message)
-                    break
-                case .unknownError:
-                    break
-                case .urlNotFound:
-                    break
+                DispatchQueue.main.async {
+                    switch error {
+                    case .internetConnectionError:
+                        self.showAlert("Connection Error", "Please check your internet connection.")
+        
+                    case .emptyData:
+                        self.showAlert("Error", "No data received from the server.")
+                        
+                    case .invalidUrl:
+                        self.showAlert("url", "Mesasage")
+                        
+                    case .requestError(title: let title, message: let message):
+                        self.showAlert(title, message)
+                        
+                        break
+                    case .unknownError:
+                        break
+                    case .urlNotFound:
+                        break
+                    case .timeout:
+                        break
+                    }
                 }
                 return
             }
@@ -69,48 +76,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    func doLogin2(username: String, password: String) {
-        // create a request
-        var request = URLRequest(url: getUrl() )
-        
-        request.httpMethod = "POST"
-        
-        let json: [String: Any] = [
-            "email": username,
-            "password": password
-        ]
-        
-        let data = try? JSONSerialization.data(withJSONObject: json)
-        request.cachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-        request.httpBody = data
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if error != nil {
-                print("algo se rompio", error)
-                return
-            }
-            
-            let json = try? JSONSerialization.jsonObject(with: data!) as? [String: Any]
-            print(json)
-            
-            if json?["accessToken"] as? String == nil {
-                print("no se, no vino el access token, todo mal")
-                return
-            }
-            
-            self.saveAccessToken(json)
-            self.saveUsernameAndEmail(json)
-           
-            DispatchQueue.main.async {
-                self.presentTabBarView()
-            }
-        }
-            .resume()
-        
-    }
-    
-   
     @IBAction func signUpDidTapped(_ sender: Any) {
         performSegue(withIdentifier: "create_account_segue", sender: nil)
     }
@@ -122,7 +87,6 @@ class LoginViewController: UIViewController {
     func saveAccessToken(_ json: [String: Any]?) {
         let accessToken = json?["accessToken"] as? String
         UserDefaults.standard.setValue(accessToken, forKey: "accessToken")
-        
     }
     
     func saveUsernameAndEmail(_ json: [String: Any]?) {
@@ -132,18 +96,13 @@ class LoginViewController: UIViewController {
         UserDefaults.standard.setValue(username, forKey: "username")
         let email = user?["email"] as? String
         UserDefaults.standard.setValue(email, forKey: "email")
-        
     }
     
-    func getUrl() -> URL {
-        let urlString = "https://auction-master-of-darkness-dev-00d8bbef4e9d.herokuapp.com/api/v1/login"
-        let url = URL(string: urlString)!
-        
-        return url
+    func showAlert(_ title: String, _ message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
-    
-    
-  
 }
 
 

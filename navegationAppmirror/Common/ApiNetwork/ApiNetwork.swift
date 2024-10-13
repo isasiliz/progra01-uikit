@@ -24,8 +24,15 @@ class ApiNetwork {
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if error != nil {
-                completion(nil, .connectionError)
+            if let error = error as NSError? {
+                
+               
+                let mappedError = self.mapError(error)
+                    
+               
+               
+                
+                completion(nil, mappedError)
                 return
             }
             
@@ -62,14 +69,23 @@ class ApiNetwork {
         }
         .resume()
     }
-    
+    func mapError(_ error: NSError) -> ApiError {
+        switch error.code {
+        case NSURLErrorCannotFindHost:
+            return .invalidUrl
+        case NSURLErrorNotConnectedToInternet:
+            return .internetConnectionError
+        case NSURLErrorTimedOut:
+            return .timeout
+        default:
+            return .unknownError
+        }
+    }
     private func getUrl(path: String) -> URL? {
         let urlString = "https://auction-master-of-darkness-dev-00d8bbef4e9d.herokuapp.com/\(path)"
         guard let url = URL(string: urlString) else {
             return nil
         }
-        
         return url
     }
-    
 }

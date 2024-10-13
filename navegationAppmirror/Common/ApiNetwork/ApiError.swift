@@ -9,9 +9,10 @@ import Foundation
 
 enum ApiError: Error {
     case invalidUrl
-    case connectionError
+    case internetConnectionError
     case unknownError
     case requestError(title: String, message: String)
     case emptyData
     case urlNotFound
+    case timeout
 }
