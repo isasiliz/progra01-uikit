@@ -1,3 +1,5 @@
+// LOGIN VIEW
+"_LOGIN_TITLE" = "Hello!";
 
 "_400_ERROR_TITLE" = "Request Error Title";
 "_400_ERROR_MESSAGE" = "Request Error Message";

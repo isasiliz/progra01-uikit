@@ -8,6 +8,7 @@
 import Foundation
 import UIKit
 class LoginViewController: UIViewController {
+    @IBOutlet weak var loginTitleOutlet: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButtonOutlet: UIButton!
@@ -23,6 +24,7 @@ class LoginViewController: UIViewController {
         logInButtonOutlet.layer.cornerRadius = 10
         signUpButton.layer.cornerRadius = 10
         passwordTextField.text = "StrongPassword123!" //borrar esto desp
+        loginTitleOutlet.text = NSLocalizedString("_LOGIN_TITLE", comment: "")
     }
     
     @IBAction func doLogInDidPress(_ sender: Any) {
