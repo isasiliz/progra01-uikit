@@ -8,15 +8,18 @@
 import Foundation
 import UIKit
 class LoginViewController: UIViewController {
-    @IBOutlet weak var loginTitleOutlet: UILabel!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButtonOutlet: UIButton!
     @IBOutlet weak var usernameContentView: UIView!
     @IBOutlet weak var passwordContentView: UIView!
     @IBOutlet weak var signUpButton: UIButton!
-    
-    
+    @IBOutlet weak var loginTitleOutlet: UILabel!
+    @IBOutlet weak var loginTitle2Outlet: UILabel!
+    @IBOutlet weak var usernameTitleOutlet: UILabel!
+    @IBOutlet weak var passwordTitleOutlet: UILabel!
+    @IBOutlet weak var textAccountSignUpOutlet: UILabel!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         usernameContentView.layer.cornerRadius = 10
@@ -25,11 +28,18 @@ class LoginViewController: UIViewController {
         signUpButton.layer.cornerRadius = 10
         passwordTextField.text = "StrongPassword123!" //borrar esto desp
         loginTitleOutlet.text = NSLocalizedString("_LOGIN_TITLE", comment: "")
+        loginTitle2Outlet.text = NSLocalizedString("_LOGIN_TITLE_2", comment: "")
+        usernameTitleOutlet.text = NSLocalizedString("_USERNAME_TITLE", comment: "")
+        passwordTitleOutlet.text = NSLocalizedString("_PASSWORD_TITLE", comment: "")
+        textAccountSignUpOutlet.text = NSLocalizedString("_SIGNUP_TEXT", comment: "")
+        logInButtonOutlet.setTitle(NSLocalizedString("_LOGIN_BUTTON", comment: ""), for: .normal)
+        signUpButton.setTitle(NSLocalizedString("_SIGNUP_BUTTON", comment: ""), for: .normal)
+        forgotPasswordButton.setTitle(NSLocalizedString("_FORGOT_PASSWORD_BUTTON", comment: ""), for: .normal)
+        
     }
     
     @IBAction func doLogInDidPress(_ sender: Any) {
         doLogin(username: userNameTextField.text!, password: passwordTextField.text!)
-        
     }
     
     func doLogin(username: String, password: String) {

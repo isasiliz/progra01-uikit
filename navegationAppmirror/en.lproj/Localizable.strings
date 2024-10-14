@@ -1,6 +1,15 @@
 // LOGIN VIEW
 "_LOGIN_TITLE" = "Hello!";
+"_LOGIN_TITLE_2" = "Welcome Back";
+"_USERNAME_TITLE" = "Username";
+"_PASSWORD_TITLE" = "Password";
+"_SIGNUP_TEXT" = "¿Don´t have an account?";
+"_LOGIN_BUTTON" = "LogIn";
+"_SIGNUP_BUTTON" = "Sign Up";
+"_FORGOT_PASSWORD_BUTTON" = "Forgot Password?";
 
+
+//ERROR
 "_400_ERROR_TITLE" = "Request Error Title";
 "_400_ERROR_MESSAGE" = "Request Error Message";
 "_LOGIN_ERROR" = "Login Error";
