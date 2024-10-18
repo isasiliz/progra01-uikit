@@ -8,6 +8,16 @@
 "_SIGNUP_BUTTON" = "Sign Up";
 "_FORGOT_PASSWORD_BUTTON" = "Forgot Password?";
 
+// SIGNUP VIEW
+"_SIGNUP_TITLE" = "Create Acount";
+"_EMAIL_TITLE" = "Email";
+
+//FORGOTPASSWORD
+"_FORGOT_PASSWORD_TITLE" = "Forgot Password?";
+"_FORGOT_PASSWORD_TEXT" = "Please enter your email address to reset your password.";
+"_EMAIL_RESET_TEXTFIELD" = "Enter your email";
+"_RESET_LINK_BUTTON" = "Send Reset Link";
+
 
 //ERROR
 "_400_ERROR_TITLE" = "Request Error Title";

@@ -8,6 +8,17 @@
 "_SIGNUP_BUTTON" = "Crear Cuenta";
 "_FORGOT_PASSWORD_BUTTON" = "¿Olvidaste la contraseña?";
 
+// SIGNUP VIEW
+"_SIGNUP_TITLE" = "Crea una cuenta";
+"_EMAIL_TITLE" = "Correo electrónico";
+
+//FORGOTPASSWORD
+"_FORGOT_PASSWORD_TITLE" = "¿Olvidaste tu contraseña?";
+"_FORGOT_PASSWORD_TEXT" = "Por favor, ingresa tu dirección de correo electrónico para restablecer tu contraseña.";
+"_EMAIL_RESET_TEXTFIELD" = "Ingresa tu correo electrónico";
+"_RESET_LINK_BUTTON" = "Enviar enlace";
+
+
 
 //ERROR
 "_400_ERROR_TITLE" = "Error de request";

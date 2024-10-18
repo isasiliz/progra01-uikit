@@ -264,7 +264,9 @@
                     <navigationItem key="navigationItem" id="2NW-bv-4h0"/>
                     <connections>
                         <outlet property="emailResetTextField" destination="pUL-7C-GTp" id="dbR-Jd-eiF"/>
+                        <outlet property="forgotPasswordTitleOutlet" destination="jCS-F4-mbI" id="KMB-cD-o9p"/>
                         <outlet property="resetLinkButton" destination="0EJ-d8-wuB" id="Y4c-Km-dWg"/>
+                        <outlet property="textForgotPasswordOutlet" destination="rYm-Lr-ezo" id="FvB-ZU-Yfp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="azC-WJ-Qgj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -382,7 +384,7 @@
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pTh-H0-UCH">
                                                 <rect key="frame" x="16" y="16" width="329" height="50"/>
-                                                <color key="backgroundColor" red="0.0" green="0.49693943299999999" blue="0.47262523470000001" alpha="0.78664434520000004" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.0" green="0.49693943299999999" blue="0.47262523470000001" alpha="0.79000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="9iR-RK-VDK"/>
                                                 </constraints>
@@ -422,11 +424,15 @@
                     <connections>
                         <outlet property="emailContentView" destination="qaa-M0-Td8" id="pof-ng-YyB"/>
                         <outlet property="emailTextField" destination="7ve-fQ-JDx" id="pMh-70-INZ"/>
+                        <outlet property="emailTitleOutlet" destination="UJ0-Kc-euV" id="YbZ-D0-1Y1"/>
                         <outlet property="passwordContentView" destination="miU-n6-CQl" id="thr-F6-7Oj"/>
                         <outlet property="passwordTextField" destination="Ppt-4w-7z0" id="HPG-Cs-vU1"/>
+                        <outlet property="passwordTitleOutlet" destination="NyI-Yu-4hw" id="diq-nR-KEJ"/>
                         <outlet property="signUpButton" destination="pTh-H0-UCH" id="vm4-Gn-6aj"/>
+                        <outlet property="signUpTitleOutlet" destination="rWU-hv-loF" id="ISn-nM-8gH"/>
                         <outlet property="usernameContentView" destination="ER7-LF-5Aa" id="2Tz-0z-Oha"/>
                         <outlet property="usernameTextField" destination="Kbc-ge-fSK" id="k1X-s7-8RP"/>
+                        <outlet property="usernameTitleOutlet" destination="VON-Jz-4lz" id="Scn-45-n9p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ddP-0s-k9o" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

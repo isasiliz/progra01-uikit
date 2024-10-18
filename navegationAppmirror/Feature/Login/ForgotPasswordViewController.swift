@@ -9,10 +9,20 @@ import UIKit
 
 class ForgotPasswordViewController : UIViewController {
     
+    @IBOutlet weak var forgotPasswordTitleOutlet: UILabel!
+    @IBOutlet weak var textForgotPasswordOutlet: UILabel!
     @IBOutlet weak var emailResetTextField: UITextField!
     @IBOutlet weak var resetLinkButton: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        forgotPasswordTitleOutlet.text = NSLocalizedString("_FORGOT_PASSWORD_TITLE", comment: "")
+        textForgotPasswordOutlet.text = NSLocalizedString("_FORGOT_PASSWORD_TEXT", comment: "")
+        emailResetTextField.text = NSLocalizedString("_EMAIL_RESET_TEXTFIELD", comment: "")
+        resetLinkButton.setTitle(NSLocalizedString("_RESET_LINK_BUTTON", comment: ""), for: .normal)
     }
     
     @IBAction func sendResetLinkTapped(_ sender: Any) {

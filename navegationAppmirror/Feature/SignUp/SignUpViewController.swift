@@ -14,14 +14,22 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var usernameContentView: UIView!
     @IBOutlet weak var emailContentView: UIView!
     @IBOutlet weak var passwordContentView: UIView!
+    @IBOutlet weak var usernameTitleOutlet: UILabel!
+    @IBOutlet weak var emailTitleOutlet: UILabel!
+    @IBOutlet weak var passwordTitleOutlet: UILabel!
+    @IBOutlet weak var signUpTitleOutlet: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
        usernameContentView.layer.cornerRadius = 10
         emailContentView.layer.cornerRadius = 10
         passwordContentView.layer.cornerRadius = 10
         signUpButton.layer.cornerRadius = 10
+        signUpTitleOutlet.text = NSLocalizedString("_SIGNUP_TITLE", comment: "")
+        usernameTitleOutlet.text = NSLocalizedString("_USERNAME_TITLE", comment: "")
+        emailTitleOutlet.text = NSLocalizedString("_EMAIL_TITLE", comment: "")
+        passwordTitleOutlet.text = NSLocalizedString("_PASSWORD_TITLE", comment: "")
+        signUpButton.setTitle(NSLocalizedString("_SIGNUP_BUTTON", comment: ""), for: .normal)
     }
     
     @IBAction func doSignUpDidPress(_ sender: Any) {
